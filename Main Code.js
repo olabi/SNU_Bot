@@ -30,9 +30,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     } catch (e) {
         replier.reply(e);
     }
-    if (msg.startsWith("성?")) {
-        var query = msg.substr(2).trim();
-        var url = "https://vapis.run.goorm.site/api/chatgpt?plusId=FZpOMB_kQZEE&word=" + encodeURIComponent(query);
+    if (msg.startsWith("gpt?")) {
+        var query = msg.substr(4).trim();
+        var url = "https://vapis.run.goorm.site/api/chatgpt?plusId=<**** KEY *****>&word=" + encodeURIComponent(query);
 
         try {
             var data = JSON.parse(
@@ -48,19 +48,43 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var doc = org.jsoup.Jsoup.connect(searchUrl).get();
         var searchResult = "점심 메뉴:\n";
 
-        if (msg.startsWith(".학생회관")) {
+        if (msg.startsWith(".학생")) {
             searchResult += getMenu(doc, 1);
             replier.reply(searchResult);
-        } else if (msg.startsWith(".자하연")) {
+        } else if (msg.startsWith(".자하")) {
             searchResult += getMenu(doc, 2);
             replier.reply(searchResult);
-        } else if (msg.startsWith(".예술계")) {
+        } else if (msg.startsWith(".예술")) {
             searchResult += getMenu(doc, 3);
             replier.reply(searchResult);
-        } else if (msg.startsWith(".두레미담")) {
+        } else if (msg.startsWith(".라운")) {
+            searchResult += getMenu(doc, 4);
+            replier.reply(searchResult);
+        } else if (msg.startsWith(".두레")) {
             searchResult += getMenu(doc, 5);
             replier.reply(searchResult);
-        } else if (msg.startsWith(".220동")) {
+        } else if (msg.startsWith(".동원")) {
+            searchResult += getMenu(doc, 6);
+            replier.reply(searchResult);
+        } else if (msg.startsWith(".기숙")) {
+            searchResult += getMenu(doc, 7);
+            replier.reply(searchResult);
+        } else if (msg.startsWith(".공간")) {
+            searchResult += getMenu(doc, 8);
+            replier.reply(searchResult);
+        } else if (msg.startsWith(".감골")) {
+            searchResult += getMenu(doc, 9);
+            replier.reply(searchResult);
+        } else if (msg.startsWith(".사범")) {
+            searchResult += getMenu(doc, 10);
+            replier.reply(searchResult);
+        } else if (msg.startsWith(".302")) {
+            searchResult += getMenu(doc, 11);
+            replier.reply(searchResult);
+        } else if (msg.startsWith(".301")) {
+            searchResult += getMenu(doc, 12);
+            replier.reply(searchResult);
+        } else if (msg.startsWith(".220")) {
             searchResult += getMenu(doc, 13);
             replier.reply(searchResult);
         } else if (msg == ".") {
