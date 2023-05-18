@@ -1,5 +1,4 @@
-# Digital_Time_Bot
-SNU봇 | 사용방법 
+# SNU봇 | 사용방법 
 (예시)
 .학생
 .자하
