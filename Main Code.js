@@ -1,4 +1,4 @@
-const scriptName = "메신저봇r";
+const scriptName = "SNUbot";
 var a = { "0": "███ ", "1": "░░█ ", "2": "███ ", "3": "███ ", "4": "█░█ ", "5": "███ ", "6": "███ ", "7": "███ ", "8": "███ ", "9": "███ " };
 var b = { "0": "█░█ ", "1": "░░█ ", "2": "░░█ ", "3": "░░█ ", "4": "█░█ ", "5": "█░░ ", "6": "█░░ ", "7": "░░█ ", "8": "█░█ ", "9": "█░█ " };
 var c = { "0": "█░█ ", "1": "░░█ ", "2": "███ ", "3": "███ ", "4": "███ ", "5": "███ ", "6": "███ ", "7": "░░█ ", "8": "███ ", "9": "███ " };
@@ -30,8 +30,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
   } catch (e) {
     replier.reply(e);
   }
-  if (msg.startsWith("bot?")) {
-    var query = msg.substr(4).trim();
+  if (msg.startsWith("gpt3?")) {
+    var query = msg.substr(5).trim();
     var url = "https://vapis.run.goorm.site/api/chatgpt?plusId=<**** KEY *****>&word=" + encodeURIComponent(query);
 
     try {
