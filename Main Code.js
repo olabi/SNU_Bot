@@ -9,6 +9,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
   try {
     if (msg == ".시간") {
       var 날짜 = new Date();
+      var Y = String(날짜.getFullYear());
+      var MM = String(날짜.getMonth());
+      var DD = String(날짜.getDate());
+      var DW = String(날짜.getDay());
+      var 요일 = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
       var H = String(날짜.getHours());
       var M = String(날짜.getMinutes());
 
@@ -20,11 +25,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
 
       replier.reply(
-        a[H[0]] + a[H[1]] + "░ " + a[M[0]] + a[M[1]]
-        + "\n" + b[H[0]] + b[H[1]] + "█ " + b[M[0]] + b[M[1]]
-        + "\n" + c[H[0]] + c[H[1]] + "░ " + c[M[0]] + c[M[1]]
-        + "\n" + d[H[0]] + d[H[1]] + "█ " + d[M[0]] + d[M[1]]
-        + "\n" + e[H[0]] + e[H[1]] + "░ " + e[M[0]] + e[M[1]]);
+        Y + "년 " + MM + "월 " + DD + "일(" + 요일[DW] + ")"
+        + "\n" + a[H[0]] + a[H[1]] + " ░ " + a[M[0]] + a[M[1]]
+        + "\n" + b[H[0]] + b[H[1]] + " █ " + b[M[0]] + b[M[1]]
+        + "\n" + c[H[0]] + c[H[1]] + " ░ " + c[M[0]] + c[M[1]]
+        + "\n" + d[H[0]] + d[H[1]] + " █ " + d[M[0]] + d[M[1]]
+        + "\n" + e[H[0]] + e[H[1]] + " ░ " + e[M[0]] + e[M[1]]);
 
     }
   } catch (e) {
