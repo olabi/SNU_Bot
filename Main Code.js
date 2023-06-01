@@ -115,17 +115,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     } else if (msg.startsWith(".기숙")) {
       searchResult += getMenu(doc, 7);
       replier.reply(searchResult);
-    } else if (msg.startsWith(".공간")) {
+    } else if (msg.startsWith(".감골")) {
       searchResult += getMenu(doc, 8);
       replier.reply(searchResult);
-    } else if (msg.startsWith(".감골")) {
+    } else if (msg.startsWith(".사범")) {
       searchResult += getMenu(doc, 9);
       replier.reply(searchResult);
-    } else if (msg.startsWith(".사범")) {
-      searchResult += getMenu(doc, 10);
-      replier.reply(searchResult);
     } else if (msg.startsWith(".302")) {
-      searchResult += getMenu(doc, 11);
+      searchResult += getMenu(doc, 10);
       replier.reply(searchResult);
     } else if (msg.startsWith(".301")) {
       var results = doc.select("table > tbody > tr:nth-child(12) > td.views-field-field-lunch > div");
