@@ -17,7 +17,7 @@ var e = { "0": "███ ", "1": "░░█ ", "2": "███ ", "3": "██�
 
  * You may obtain a copy of the License at
 
- * http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0''
 
  * Unless required by applicable law or agreed to in writing, software
 
@@ -33,16 +33,28 @@ var e = { "0": "███ ", "1": "░░█ ", "2": "███ ", "3": "██�
 
 const AI = require('AI');
 var query;
-// 바드 예제
 
 function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
+  // 빙 예제
+  if (msg.startsWith('bing?')) {
+    const chat1 = new AI.bing('_U=<YOUR_COOKIE>', 'balanced');
+    query = msg.substr(5).trim();
+    replier.reply(chat1.ask(query, (data) => {
+      if (data.status) {
+        replier.reply(data.message );
+      } else {
+        replier.reply('에러가 발생하였지만, 그전의 내용을 전송해드릴게요!\n\n' + data.message);
+      }     
+    }));
+  }
 
+  // 바드 예제
   if (msg.startsWith('bard?')) {
 
-    const chat = new AI.bard('__Secure-1PSID=<YOUR_COOKIE>');
+    const chat2 = new AI.bard('__Secure-1PSID=<YOUR_COOKIE>');
     query = msg.substr(5).trim();
 
-    replier.reply(chat.ask(encodeURIComponent(query)));
+    replier.reply(chat2.ask(query));
 
   }
 
@@ -140,6 +152,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
   }
 
 }
+
 
 function getMenu(doc, index) {
   var results = doc.select("table > tbody > tr:nth-child(" + index + ") > td.views-field-field-lunch > p");
