@@ -32,16 +32,17 @@ var e = { "0": "███ ", "1": "░░█ ", "2": "███ ", "3": "██�
 
 
 const AI = require('AI');
-
+var query;
 // 바드 예제
 
 function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
 
-  if (msg.startsWith('.bard')) {
+  if (msg.startsWith('bard?')) {
 
     const chat = new AI.bard('__Secure-1PSID=<YOUR_COOKIE>');
+    query = msg.substr(5).trim();
 
-    replier.reply(chat.ask('hello world, bard'))
+    replier.reply(chat.ask(encodeURIComponent(query)));
 
   }
 
@@ -76,7 +77,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     replier.reply(e);
   }
   if (msg.startsWith("gpt3?")) {
-    var query = msg.substr(5).trim();
+    query = msg.substr(5).trim();
     var url = "https://vapis.run.goorm.site/api/chatgpt?plusId=<**** KEY *****>&word=" + encodeURIComponent(query);
 
     try {
