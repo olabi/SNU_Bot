@@ -125,11 +125,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       searchResult += getMenu(doc, 10);
       replier.reply(searchResult);
     } else if (msg.startsWith(".301")) {
-      var results = doc.select("table > tbody > tr:nth-child(12) > td.views-field-field-lunch > div");
+      var results = doc.select("table > tbody > tr:nth-child(11) > td.views-field-field-lunch > div");
       searchResult += results.toArray().map(div => div.text()).join("\n\n");
       replier.reply(searchResult);
     } else if (msg.startsWith(".220")) {
-      searchResult += getMenu(doc, 13);
+      searchResult += getMenu(doc, 12);
       replier.reply(searchResult);
     } else if (msg == ".") {
       var ranNum = Math.floor(Math.random() * 13);
