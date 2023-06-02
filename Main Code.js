@@ -33,7 +33,6 @@ var e = { "0": "███ ", "1": "░░█ ", "2": "███ ", "3": "██�
 
 const AI = require('AI');
 var query;
-<<<<<<< HEAD
 
 
 // 빙 이미지 예제
@@ -62,30 +61,6 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
 
     // 바드 예제
     if (msg.startsWith('bard?')) {
-=======
-
-function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
-  // 빙 예제
-  if (msg.startsWith('bing?')) {
-    const chat1 = new AI.bing('_U=<YOUR_COOKIE>', 'balanced');
-    query = msg.substr(5).trim();
-    replier.reply(chat1.ask(query, (data) => {
-      if (data.status) {
-        replier.reply(data.message );
-      } else {
-        replier.reply('에러가 발생하였지만, 그전의 내용을 전송해드릴게요!\n\n' + data.message);
-      }     
-    }));
-  }
-
-  // 바드 예제
-  if (msg.startsWith('bard?')) {
-
-    const chat2 = new AI.bard('__Secure-1PSID=<YOUR_COOKIE>');
-    query = msg.substr(5).trim();
-
-    replier.reply(chat2.ask(query));
->>>>>>> 43fe4af5287b5ceaf8a3708f9047f8d31b6c1f70
 
         const chat2 = new AI.bard('__Secure-1PSID=<YOUR_COOKIE>');
         query = msg.substr(5).trim();
